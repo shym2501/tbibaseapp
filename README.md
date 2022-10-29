@@ -1,3 +1,4 @@
+curl -XDELETE $REPLIT_DB_URL/U
 # CodeIgniter 4 Framework
 
 ## What is CodeIgniter?
