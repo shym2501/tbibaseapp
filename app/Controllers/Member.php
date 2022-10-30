@@ -23,50 +23,11 @@ class Member extends BaseController
 	{
 
 		$data = [
-			'controller'    	=> 'member',
-			'title'     		=> 'member'
+			'title'     		=> 'Member',
+      'users'         => $this->memberModel->findAll()
 		];
 
-		return view('member', $data);
-	}
-
-	public function getAll()
-	{
-		$response = $data['data'] = array();
-
-		$result = $this->memberModel->select()->findAll();
-
-		foreach ($result as $key => $value) {
-
-			$ops = '<div class="btn-group">';
-			$ops .= '<button type="button" class=" btn btn-sm dropdown-toggle btn-info" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
-			$ops .= '<i class="fa-solid fa-pen-square"></i>  </button>';
-			$ops .= '<div class="dropdown-menu">';
-			$ops .= '<a class="dropdown-item text-info" onClick="save(' . $value->id . ')"><i class="fa-solid fa-pen-to-square"></i>   ' .  lang("App.edit")  . '</a>';
-			$ops .= '<a class="dropdown-item text-orange" ><i class="fa-solid fa-copy"></i>   ' .  lang("App.copy")  . '</a>';
-			$ops .= '<div class="dropdown-divider"></div>';
-			$ops .= '<a class="dropdown-item text-danger" onClick="remove(' . $value->id . ')"><i class="fa-solid fa-trash"></i>   ' .  lang("App.delete")  . '</a>';
-			$ops .= '</div></div>';
-
-			$data['data'][$key] = array(
-				$value->id,
-				$value->nama_lengkap,
-				$value->tempat_lahir,
-				$value->tanggal_lahir,
-				$value->alamat,
-				$value->skill,
-				$value->no_telp,
-				$value->angkatan,
-				$value->organisasi,
-				$value->lencana,
-				$value->foto,
-				$value->status,
-
-				$ops
-			);
-		}
-
-		return $this->response->setJSON($data);
+		return view('member/index', $data);
 	}
 
 	public function getOne()

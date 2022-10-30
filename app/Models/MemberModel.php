@@ -8,8 +8,7 @@ class MemberModel extends Model {
     
 	protected $table = 'member';
 	protected $primaryKey = 'id';
-	protected $returnType = 'object';
-	protected $useSoftDeletes = false;
+  protected $useAutoIncrement = true;
 	protected $allowedFields = ['nama_lengkap', 'tempat_lahir', 'tanggal_lahir', 'alamat', 'skill', 'no_telp', 'angkatan', 'organisasi', 'lencana', 'foto', 'status'];
 	protected $useTimestamps = false;
 	protected $createdField  = 'created_at';
