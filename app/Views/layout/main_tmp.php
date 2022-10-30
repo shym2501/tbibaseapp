@@ -43,6 +43,7 @@
         <script src="js/simple-datatables.js"></script>
         <script src="js/tinymce.min.js"></script>
         <script src="js/validate.js"></script>
+        <script src="js/jquery.min.js"></script>
         <script src="js/main.js"></script> 
              
    </body>
